@@ -1,0 +1,37 @@
+label{
+    width: 120px;
+    display: inline-block;
+    margin: 4px;
+    color:darkblue;
+}
+
+form{
+    background-color:lightblue;
+    width: 500px;
+    display: inline-block;
+    margin: 18px;
+
+}
+
+body{
+
+    font-family: Calibri, Helvetica, sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#pin{
+    width: 234px;
+
+
+}
+#location{
+    width: 234px;
+    margin: 4px;
+    height: 22px;
+
+
+}
+
+
+

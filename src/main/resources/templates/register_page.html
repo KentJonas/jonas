@@ -1,0 +1,414 @@
+<!--<!DOCTYPE html>-->
+<!--&lt;!&ndash;-->
+<!--To change this license header, choose License Headers in Project Properties.-->
+<!--To change this template file, choose Tools | Templates-->
+<!--and open the template in the editor.-->
+<!--&ndash;&gt;-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Signup </title>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <link rel='stylesheet' href="stylesheetPage.css"/>-->
+
+<!--    <style>-->
+<!--        h1{text-align: right;}-->
+<!--    </style>-->
+
+<!--</head>-->
+<!--<body>-->
+<!--<h1>-->
+<!--    <a href="/"> Navigate to main</a>-->
+<!--</h1>-->
+
+<!--<center><h2>SignUp Page</h2></center>-->
+<!--<center>-->
+<!--    <form action="" method="POST"  style="top: 10px">-->
+
+
+
+<!--        <label for="username"> Username: </label>-->
+<!--        <input type="text" size="30" name="username" id="username" required></br></br>-->
+
+
+<!--        <label for="email"> Email: </label>-->
+<!--        <input type="email" size="30" name="email" id="email" required></br></br>-->
+
+<!--        <label for="pin"> Password: </label>-->
+<!--        <input type="password" size="30" name="pin" id="pin" required></br>-->
+
+<!--        <label for="cpin">Confirm Password: </label>-->
+<!--        <input type="password" size="30" name="cpin" id="cpin" required></br></br>-->
+
+
+<!--        <input type="submit" value="Sign Up" /> <input type="Reset" value="Clear" /></br></br>-->
+
+<!--        Have an account?-->
+<!--        <a href="./login_page.html"> Login</a></br>-->
+
+<!--    </form>-->
+
+
+<!--</center>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Login Page</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h4>-->
+<!--    -->
+
+<!--<center>-->
+
+
+<!--<div>-->
+<!--    <form class="form">-->
+<!--        <h2>Register Form</h2>-->
+
+<!--        <div class="input-box">-->
+<!--            <i class="fa fa-user"  aria-hidden="true"></i>-->
+<!--            <input type="text" name="login" placeholder="Login" required></input>-->
+<!--        </div>-->
+
+<!--        <div class="input-box">-->
+<!--            <i class="fa fa-user"  aria-hidden="true"></i>-->
+<!--            <input type="email" name="email" placeholder="Email" required></input>-->
+<!--        </div>-->
+
+<!--        <div class="input-box">-->
+<!--            <i class="fa fa-unlock-alt"  aria-hidden="true"></i>-->
+<!--            <input type="password" name="password" placeholder="Password" pattern="(?=.\d)(?=.*[a-z]) (?=.*[A-Z]).{8,}" required></input>-->
+<!--        </div>-->
+
+<!--        <div class="input-box">-->
+<!--            <input type="submit" name="sing-in" value="register"></input>-->
+<!--        </div>-->
+<!--        <a href="/"> Navigate to main</a>-->
+<!--    </form>-->
+<!--</div>-->
+<!--</center>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>signup_page</title>
+    <style>
+        /* Reset default form styles */
+        body {
+            margin: 0;
+            padding: 0;
+            border: none;
+            font-family: Arial, sans-serif;
+            background-size: cover;
+           
+            background-position: center;
+        }
+
+        form{
+            margin: 0;
+            padding: 0;
+            border: none;
+            font-family: Arial, sans-serif;
+
+
+        }
+        input {
+            margin: 0;
+            padding: 0;
+            border: none;
+            font-family: Arial, sans-serif;
+
+
+        }
+
+        /* Container for the registration form */
+        .wrapper-login {
+            max-width: 400px;
+            margin-left: 30px;
+            margin-top: 4px;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+        /* Heading for the registration form */
+        .wrapper-login h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Input box container */
+        .input-box {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        /* Input field */
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+
+        }
+
+        /* Input field icon */
+        .input-box .icon {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            color: #777;
+
+        }
+
+        /* Input field label */
+        .input-box label {
+            position: absolute;
+            top: 0;
+            left: 10px;
+            font-size: 12px;
+            color: #777;
+            transform: translateY(-50%);
+            background-color: #f8f8f8;
+            padding: 0 5px;
+        }
+
+        /* Sign up button */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        /* Sign up button hover effect */
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Register link below the form */
+        .register-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        /* Register link text */
+        .register-link p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* Register link anchor */
+        .register-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        /* Register link anchor hover effect */
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .header {
+            background-color: #777777;
+            padding: 10px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            height:40px;
+
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+
+        /* Footer */
+        footer {
+            background-color: #777777;
+            padding: 10px;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 98%;
+            height: 20px;
+        }
+
+        footer p {
+            margin: 0;
+            color: #fff;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        footer ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        footer ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            text-decoration: underline;
+        }
+
+
+        .container {
+            display: flex;
+            justify-content: center;<
+        height: 3px;
+            width:1300px;
+
+
+        }
+
+        .welcome-box {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin-left:70vh;
+        <!--    margin-top: 40vh;-->
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-content {
+            text-align: center;
+        }
+
+        .welcome-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .welcome-description {
+            font-size: 16px;
+            color: #777;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<section class="home">
+    <header class="header">
+       <center><h1>Community Health Workers Management System</h1> </center>
+
+        <nav class="nav">
+            <a href="/">Home</a>
+            <a href="/">About</a>
+            <a href="/">Services</a>
+            <a href="/">Contact</a>
+
+        </nav>
+
+
+    </header>
+    <div class="container">
+        <div class="welcome-box">
+            <div class="welcome-content">
+                <h2 class="welcome-title">Welcome community health workers management system</h2>
+                <p class="welcome-description">Conveniently manage community health workers.</p>
+            </div>
+        </div>
+    </div>
+
+    <center>
+
+
+    <div class="wrapper-login">
+        <h2>SignUp</h2>
+        <form  method="post" action="/register" th:object="${registerRequest}">
+            <div class="input-box">
+                <span class="icon"></span>
+                <div> <label>Username</label> </div>
+                <input type="text"  name="login"required/> </br>
+
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                <input type="email" name="email"required/></br>
+                <div><label>Email</label></div>
+            </div>
+
+
+            <div class="input-box">
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                <input type="text"  name="password"required/></br>
+                <div><label>Password</label></div>
+            </div>
+
+
+            <button type="submit" id="login_btn" class="btn">Sign Up</button>
+            <div class="register-link">
+
+                <p>Already have an Account?  <a href="/login">Login</a> </p>
+
+            </div>
+
+
+
+        </form>
+
+    </div>
+
+    </center>
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Web technology.</p>
+            <!--            <ul>-->
+            <!--                <li><a href="/about">About Us</a></li>-->
+            <!--                <li><a href="/contact">Contact Us</a></li>-->
+            <!--                <li><a href="/privacy">Privacy Policy</a></li>-->
+            <!--                <li><a href="/terms">Terms of Service</a></li>-->
+            <!--            </ul>-->
+        </div>
+    </footer>
+
+</section>
+</body>
+</html>
